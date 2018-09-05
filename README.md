@@ -21,7 +21,7 @@ $ cd brTPF_Experiments/ExtendedClient.js/
 $ npm install .
 $ cd ../../
 ```
-You may check whether the client works by using the following command (which is supposed to execute an example query over the TPF endpoint of DBpedia).
+You may check whether the client works by using the following command. Note that this command is supposed to execute an example query over the TPF endpoint of DBpedia *without* printing the results; after the execution of this command finishes (which may take a minute or so), your current director should contain a new file called `eval_TPF_undefined.csv`. You can delete this file.
 ```
 $ brTPF_Experiments/ExtendedClient.js/bin/TPF-client-eval http://fragments.dbpedia.org/2015/en Client.js/queries/artists-york.sparql
 ```
