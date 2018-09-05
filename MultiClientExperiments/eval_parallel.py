@@ -27,7 +27,7 @@ def main((command, start_fragment, config_file, query_folder, batch, folder_numb
         query_list_file_name = 'executed_queries_list_' +  command + '_' + str(folder_number) + '.txt'
         with open(query_list_file_name, 'a') as query_list_file:
             query_list_file.write(query_file + '\n')
-            cmd = 'bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch  + ' --outputFileNumber ' + str(folder_number))
+            cmd = '../ExtendedClient.js/bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch  + ' --outputFileNumber ' + str(folder_number))
             print('Command: ' + cmd)
             try:
                 subprocess.call(cmd, shell=True)

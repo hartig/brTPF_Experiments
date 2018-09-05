@@ -28,8 +28,8 @@ class Timeout():
 def main(command, start_fragment, config_file, query_folder, batch):
     for query_file in sorted(glob.glob(query_folder + '/*.rq')):
         print('Query: ' + query_file)
-        cmd = 'bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch  + ' --outputFileNumber ' + str(0))
-        #cmd = './bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch)
+        cmd = '../ExtendedClient.js/bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch  + ' --outputFileNumber ' + str(0))
+        #cmd = '../ExtendedClient.js/bin/' + command + ' ' + start_fragment + ' -c ' + config_file + ' -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), query_file + ' --maxNumberOfMappings ' + batch)
         print('Command: ' + cmd)
         try:
             subprocess.call(cmd, shell=True)

@@ -2,7 +2,7 @@
 /*! @license ©2013 Ruben Verborgh - Multimedia Lab / iMinds / Ghent University */
 /* Command-line utility to execute SPARQL queries over triple pattern fragments. */
 
-var ldf = require('../brTPF-client');
+var ldf = require('../../../Client.js/brTPF-client');
 
 // Retrieve and check arguments
 var args = require('minimist')(process.argv.slice(2));
@@ -112,7 +112,14 @@ try {
     DEBUGdata = config.fragmentsClient._overallNumberOfTriplesReceived;
     fs.appendFileSync(measurementsFile, [queryFile,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal].join(',') + '\n');
     fs.appendFileSync(measurementsFile2, queryFile + ',' + messageForMeasurementsFile2(config.fragmentsClient._chunkSizeCounters) + '\n');
-    process.stdout.flush();
+// I commented the following line as flush() does not seem to be
+// supported in newer node.js version anymore.
+//                                         -Olaf
+    //process.stdout.flush();
+// Instead, the process has to be terminated now. Hence, I added
+// the following line.
+//                                         -Olaf
+    process.exit();
   });
 }
 // Report a synchronous error

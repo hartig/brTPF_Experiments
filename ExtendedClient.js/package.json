@@ -1,18 +1,18 @@
 {
-  "name": "ldf-client",
-  "description": "Linked Data Fragments Client",
+  "name": "LDF-client",
+  "description": "Extended version of the TPF and brTPF client that records measurements about query executions and, thus, can be used for experiments.",
   "version": "1.2.4",
   "license": "MIT",
-  "main": "ldf-client.js",
+  "main": "TPF-client.js",
   "bin": {
-    "ldf-client": "./bin/ldf-client"
+    "ldf-client": "./bin/TPF-client"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:LinkedDataFragments/Client.js.git"
+    "url": "git@github.com:hartig/brTPF_Experiments.git"
   },
   "bugs": {
-    "url": "https://github.com/LinkedDataFragments/Client.js/issues"
+    "url": "https://github.com/hartig/brTPF_Experiments/issues"
   },
   "scripts": {
     "docs": "./node_modules/jsdoc/jsdoc.js -c jsdoc.json README.md lib",
