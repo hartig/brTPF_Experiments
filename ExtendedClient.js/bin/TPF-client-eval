@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env nodejs
 /*! @license ©2013 Ruben Verborgh - Multimedia Lab / iMinds / Ghent University */
 /* Command-line utility to execute SPARQL queries over triple pattern fragments. */
 
