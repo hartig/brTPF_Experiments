@@ -10,7 +10,8 @@ if (args.listformats)
   return Object.keys(ldf.SparqlResultWriter.writers).forEach(function (t) { console.log(t); });
 if (!(args.q || args.f) && args._.length < 1 || args._.length > 2 || args.h || args.help) {
   console.error('usage: ldf-client [startFragment] query.sparql [-c config.json] ' +
-                                  '[-t application/json] [-l logLevel] [--help] [--outputFileNumber y]');
+                                  '[-t application/json] [-l logLevel] [--help] ' +
+                                  '[--outputFileNumber y] [--timeoutInMins t]');
   console.error('       ldf-client --listformats (Lists supported result formats for -t)');
   return process.exit(1);
 }
@@ -45,7 +46,7 @@ function queryNameForMeasurementsFile( filepath ) {
 var start = new Date();
 var DEBUGfirstTime, DEBUGtime, DEBUGfirstHttp, DEBUGhttp, DEBUGdata, DEBUGtotal = 0;
 
-var timeoutInMins = 5;
+var timeoutInMins = args.timeoutInMins ? args.timeoutInMins : 5;
 
 setTimeout( function () {
   DEBUGtime = new Date() - start;

@@ -10,8 +10,9 @@ if (args.listformats)
   return Object.keys(ldf.SparqlResultWriter.writers).forEach(function (t) { console.log(t); });
 if (!(args.q || args.f) && args._.length < 1 || args._.length > 2 || args.h || args.help) {
   console.error('usage: brTPF-client-eval [startFragment] query.sparql [-c config.json] ' +
-                                          '[-t application/json] [-l logLevel] [--help]' +
-                                          '[--maxNumberOfMappings x]' + '[--outputFileNumber y]' );
+                                          '[-t application/json] [-l logLevel] [--help] ' +
+                                          '[--maxNumberOfMappings x] [--outputFileNumber y]' +
+                                          '[--timeoutInMins t]' );
   console.error('       brTPF-client-eval --listformats (Lists supported result formats for -t)');
   return process.exit(1);
 }
@@ -59,7 +60,7 @@ function messageForMeasurementsFile2( chunkSizeCounters ) {
 var start = new Date();
 var DEBUGfirstTime, DEBUGtime, DEBUGfirstHttp, DEBUGhttp, DEBUGdata, DEBUGtotal = 0;
 
-var timeoutInMins = 5;
+var timeoutInMins = args.timeoutInMins ? args.timeoutInMins : 5;
 
 setTimeout( function () {
   DEBUGtime = new Date() - start;
