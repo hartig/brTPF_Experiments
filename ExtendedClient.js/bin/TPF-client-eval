@@ -33,6 +33,15 @@ var configFile = args.c ? args.c : path.join(__dirname, '../config-default.json'
 var logname = 'eval_TPF_' + args.outputFileNumber + '.csv';
 Logger.setLevel(args.l || 'warning');
 
+function queryNameForMeasurementsFile( filepath ) {
+  var arr = filepath.split("/");
+  var filename = arr[arr.length - 1];
+  if ( filename.endsWith(".rq") )
+    return filename.slice(0, -3);
+  else
+    return filename;
+}
+
 var start = new Date();
 var DEBUGfirstTime, DEBUGtime, DEBUGfirstHttp, DEBUGhttp, DEBUGdata, DEBUGtotal = 0;
 
@@ -43,7 +52,8 @@ setTimeout( function () {
   DEBUGhttp = config.fragmentsClient._httpClient.DEBUGcalls;
   DEBUGtps = config.fragmentsClient._numberOfTriplePatternsInQuery;
   DEBUGdata = config.fragmentsClient._overallNumberOfTriplesReceived;
-  fs.appendFileSync(logname, [queryFile,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal, 'TIMEOUT', timeoutInMins].join(',') + '\n');
+  queryName = queryNameForMeasurementsFile(queryFile);
+  fs.appendFileSync(logname, [queryName,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal, 'TIMEOUT', timeoutInMins].join(',') + '\n');
   process.exit();
 }, timeoutInMins*60*1000 );
 
@@ -85,7 +95,8 @@ try {
     DEBUGhttp = config.fragmentsClient._httpClient.DEBUGcalls;
     DEBUGtps = config.fragmentsClient._numberOfTriplePatternsInQuery;
     DEBUGdata = config.fragmentsClient._overallNumberOfTriplesReceived;
-    fs.appendFileSync(logname, [queryFile,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal, 'ERROR', error].join(',') + '\n');
+    queryName = queryNameForMeasurementsFile(queryFile);
+    fs.appendFileSync(logname, [queryName,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal, 'ERROR', error].join(',') + '\n');
     process.exit();
   });
 
@@ -94,7 +105,8 @@ try {
     DEBUGhttp = config.fragmentsClient._httpClient.DEBUGcalls;
     DEBUGtps = config.fragmentsClient._numberOfTriplePatternsInQuery;
     DEBUGdata = config.fragmentsClient._overallNumberOfTriplesReceived;
-    fs.appendFileSync(logname, [queryFile,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal].join(',') + '\n');
+    queryName = queryNameForMeasurementsFile(queryFile);
+    fs.appendFileSync(logname, [queryName,DEBUGtps,DEBUGfirstTime, DEBUGfirstHttp, DEBUGtime, DEBUGhttp, DEBUGdata, DEBUGtotal].join(',') + '\n');
 // I commented the following line as flush() does not seem to be
 // supported in newer node.js version anymore.
 //                                         -Olaf
