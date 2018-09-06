@@ -1,0 +1,29 @@
+# Author: Olaf Hartig http://olafhartig.de
+
+# The following commands are needed to create a new random order for
+# the queries, which should not be necessary.
+#
+# gunzip DuplicateFreeWatDivWorkload.txt
+#
+# sort -R DuplicateFreeWatDivWorkload.txt > DuplicateFreeWatDivWorkload_RandomOrder1.txt
+#
+# gzip -9 DuplicateFreeWatDivWorkload.txt
+
+
+#
+# The following commands create the individual files with the queries, putting
+# them all into a single directory.
+#
+
+mkdir OneDir
+
+./createQueryFilesInOneDir.sh DuplicateFreeWatDivWorkload_RandomOrder1.txt OneDir
+
+#
+# The following commands create the individual files with the queries, and
+# distribute them over 104 sub-directories inside a given directory.
+#
+
+mkdir Subdirs
+
+./createQueryFilesInMultipleSubdirs.sh DuplicateFreeWatDivWorkload_RandomOrder1.txt Subdirs 104
