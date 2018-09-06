@@ -33,4 +33,11 @@ TODO
 
 ## Multiple-Clients Experiments
 
+Create the test queries as follows.
+```
+$ cd brTPF_Experiments/Queries/WatDiv/
+$ mkdir Subdirs
+$ ./createQueryFilesInMultipleSubdirs.sh DuplicateFreeWatDivWorkload_RandomOrder1.txt Subdirs 104
+```
+
 TODO
