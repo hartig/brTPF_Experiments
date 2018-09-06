@@ -7,7 +7,7 @@ if [ "$#" -lt 5 ]; then
 	echo
 	echo "Usage: ./eval.sh <dir with queries> <URI of start fragment> <timeout in minutes> (TPF-client-eval | brTPF-client-eval) <string to be attached to file name> <max. number of mappings (only for brTPF)>"
 	echo
-	echo "Example: ./eval.sh ../Queries/WatDiv/OneDir100  http://localhost:8080/watdiv  60  brTPF-client-eval  test  30"
+	echo "Example: ./eval.sh ../../Queries/WatDiv/OneDir100  http://localhost:8080/watdiv  60  brTPF-client-eval  test  30"
 	echo
 	exit
 fi
