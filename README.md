@@ -8,14 +8,15 @@ Clone this repo on the computer(s) that you want to use to simulate the TPF/brTP
 ```
 $ git clone git@github.com:hartig/brTPF_Experiments.git
 ```
-Additionally, clone [our fork](https://github.com/hartig/Client.js) of the [Client.js repo](https://github.com/LinkedDataFragments/Client.js) and, in this clone, switch to the code branch that contains our brTPF client implementation.
+Additionally, clone [our fork](https://github.com/hartig/Client.js) of the [Client.js repo](https://github.com/LinkedDataFragments/Client.js) and, in this clone, switch to the code branch that contains our brTPF client implementation and install this client.
 ```
 $ git clone git@github.com:hartig/Client.js.git
 $ cd Client.js
 $ git checkout feature-brtpf
+$ npm install .
 $ cd ..
 ```
-Now, use the following commands to install the TPF/brTPF client that we have extended for the experiments.
+Now, use the following commands to also install the TPF/brTPF client that we have extended for the experiments.
 ```
 $ cd brTPF_Experiments/ExtendedClient.js/
 $ npm install .
