@@ -41,7 +41,7 @@ Logger.setLevel(args.l || 'warning');
 function queryNameForMeasurementsFile( filepath ) {
   var arr = filepath.split("/");
   var filename = arr[arr.length - 1];
-  if ( filename.endsWith(".rq") )
+  if ( filename.length > 3 && filename.substring(filename.length-3)==".rq" )
     return filename.slice(0, -3);
   else
     return filename;
