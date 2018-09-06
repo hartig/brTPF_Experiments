@@ -15,6 +15,6 @@ fi
 for query in $1/*.rq
 do
 	echo $query
-	results=$(timeout 15m ../ExtendedClient.js/bin/$4 $2 $query --timeoutInMins $3 --outputFileNumber $5 --maxNumberOfMappings $6)
+	results=$(timeout 15m ../../ExtendedClient.js/bin/$4 $2 $query --timeoutInMins $3 --outputFileNumber $5 --maxNumberOfMappings $6)
 	echo "$results"
 done
