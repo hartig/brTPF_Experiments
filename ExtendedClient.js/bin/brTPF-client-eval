@@ -137,6 +137,7 @@ try {
 }
 // Report a synchronous error
 catch (error) {
+  fs.appendFileSync(measurementsFile, 'EXCEPTION CAUGHT (' + error + ')\n');
   console.error('ERROR: Query execution could not start.\n');
   switch (error.name) {
   case 'InvalidQueryError':
