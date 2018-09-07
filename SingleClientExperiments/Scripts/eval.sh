@@ -12,14 +12,21 @@ if [ "$#" -lt 5 ]; then
 	exit
 fi
 
+queriesDir=$1
+startFragment=$2
+timeoutInMins=$3
+command=$4
+outputFileNumber=$5
+maxNumberOfMappings=$6
+
 let killTimeout=10+${timeoutInMins}
 
 echo "every query execution will be terminated after ${killTimeout} minutes"
 
-for query in $1/*.rq
+for query in ${queriesDir}/*.rq
 do
 	echo $query
-	results=$(timeout ${killTimeout}m ../../ExtendedClient.js/bin/$4 $2 $query --timeoutInMins $3 --outputFileNumber $5 --maxNumberOfMappings $6)
+	results=$(timeout ${killTimeout}m ../../ExtendedClient.js/bin/${command} ${startFragment} $query --timeoutInMins ${timeoutInMins} --outputFileNumber ${outputFileNumber} --maxNumberOfMappings ${maxNumberOfMappings})
 	echo "$results"
 done
 
