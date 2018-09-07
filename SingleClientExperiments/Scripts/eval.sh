@@ -12,7 +12,7 @@ if [ "$#" -lt 5 ]; then
 	exit
 fi
 
-let killTimeout=10+${timeout}
+let killTimeout=10+${timeoutInMins}
 
 echo "every query execution will be terminated after ${killTimeout} minutes"
 
