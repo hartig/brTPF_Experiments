@@ -19,6 +19,7 @@ command=$4
 outputFileNumber=$5
 maxNumberOfMappings=$6
 
+echo "$0 $1 $2 $3 $4 $5 $6"
 date
 
 let killTimeout=10+${timeoutInMins}
