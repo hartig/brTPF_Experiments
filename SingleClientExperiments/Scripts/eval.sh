@@ -19,6 +19,8 @@ command=$4
 outputFileNumber=$5
 maxNumberOfMappings=$6
 
+date
+
 let killTimeout=10+${timeoutInMins}
 
 echo "every query execution will be terminated after ${killTimeout} minutes"
