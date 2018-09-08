@@ -19,10 +19,6 @@ mkdir OneDirAll
 
 ./createQueryFilesInOneDir.sh DuplicateFreeWatDivWorkload_RandomOrder1.txt OneDirAll
 
-mkdir OneDir100
-
-cp OneDirAll/Q?.rq OneDir100/; cp OneDirAll/Q??.rq OneDir100/; cp OneDirAll/Q100.rq OneDir100/
-
 #
 # The following commands create the individual files with the queries, and
 # distribute them over 104 sub-directories inside a given directory.
