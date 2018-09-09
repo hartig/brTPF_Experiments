@@ -29,7 +29,7 @@ echo "every query execution will be terminated after ${killTimeout} minutes"
 for query in ${queriesDir}/*.rq
 do
 	echo $query
-	results=$(timeout ${killTimeout}m ../../ExtendedClient.js/bin/${command} ${startFragment} $query --timeoutInMins ${timeoutInMins} --outputFileNumber ${outputFileNumber} --maxNumberOfMappings ${maxNumberOfMappings})
+	results=$(timeout ${killTimeout}m ../../ExtendedClient.js/bin/${command} ${startFragment} $query --timeoutInMins ${timeoutInMins} --outputFileNumber ${outputFileNumber} --maxNumberOfMappings ${maxNumberOfMappings} 2>&1)
 	echo "$results"
 done
 
