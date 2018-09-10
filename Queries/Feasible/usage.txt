@@ -1,0 +1,21 @@
+# Author: Olaf Hartig http://olafhartig.de
+
+#
+# The following commands create the individual files with the queries, putting
+# them all into a single directory.
+#
+
+gunzip DuplicateFreeFeasibleWorkload_RandomOrder1.txt.gz
+mkdir OneDirAll
+../WatDiv/createQueryFilesInOneDir.sh DuplicateFreeFeasibleWorkload_RandomOrder1.txt OneDirAll
+git checkout -- DuplicateFreeFeasibleWorkload_RandomOrder1.txt.gz
+
+#
+# The following commands create the individual files with the queries, and
+# distribute them over 104 sub-directories inside a given directory.
+#
+
+gunzip DuplicateFreeFeasibleWorkload_RandomOrder1.txt.gz
+mkdir Subdirs
+../WatDiv/createQueryFilesInMultipleSubdirs.sh DuplicateFreeFeasibleWorkload_RandomOrder1.txt Subdirs 104
+git checkout -- DuplicateFreeFeasibleWorkload_RandomOrder1.txt.gz
