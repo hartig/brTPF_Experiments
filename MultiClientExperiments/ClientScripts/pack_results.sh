@@ -8,5 +8,5 @@ mkdir -p ${ZIP_DIR_ON_NODE}
 zip ${ZIP_FILE_ON_NODE} ${EXEC_DIR_ON_NODE}/eval*.csv ${EXEC_DIR_ON_NODE}/executed_queries_list_* ${EXEC_DIR_ON_NODE}/sage_output/*.csv
 
 rm ${EXEC_DIR_ON_NODE}/eval*.csv
-rm ${EXEC_DIR_ON_NODE}/sage_output/*.csv
+rm -rf ${EXEC_DIR_ON_NODE}/sage_output/
 rm ${EXEC_DIR_ON_NODE}/executed_queries_list_*
