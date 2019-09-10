@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXEC_DIR_ON_NODE=/home/cbuil/tools/tpf_evaluation/git/brTPF_Experiments/MultiClientExperiments/ClientScripts
+EXEC_DIR_ON_NODE=/home/admin/tpf_evaluation/brTPF_Experiments/MultiClientExperiments/ClientScripts
 ZIP_DIR_ON_NODE=${EXEC_DIR_ON_NODE}/output
 ZIP_FILE_ON_NODE=${ZIP_DIR_ON_NODE}/${3}clients.${1}.${2}.csv.zip
 
