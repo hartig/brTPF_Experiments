@@ -18,10 +18,13 @@ def main_parallel(command, start_fragment, config_file, query_folders, batch, co
     print('Processing ' + str(folder_number) + ' files with ' +
           str(AVAILABLE_CORES) + ' cores, this may take a while...')
     pool = Pool(processes=AVAILABLE_CORES)
-    pool.map_async(main, arglist).get()
+    #pool.map_async(main, arglist)
+    pool.starmap(main, arglist)
+    pool.close()
+    pool.join()
 
 
-def main((command, start_fragment, config_file, query_folder, batch, timeoutInMins, folder_number)):
+def main(command, start_fragment, config_file, query_folder, batch, timeoutInMins, folder_number):
     for query_file in sorted(glob.glob(query_folder + '/*.rq')):
         print('Query: ' + query_file)
         query_list_file_name = 'executed_queries_list_' +  command + '_' + str(folder_number) + '.txt'
@@ -31,7 +34,7 @@ def main((command, start_fragment, config_file, query_folder, batch, timeoutInMi
             print('Command: ' + cmd)
             try:
                 subprocess.call(cmd, shell=True)
-            except Exception, e:
+            except Exception as e:
                 print(e)
                 traceback.print_exc(file=sys.stdout)
 
@@ -42,8 +45,8 @@ if __name__ == '__main__':
     else:
         try:
             main_parallel(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
-        except Exception, exc:
-            print exc
+        except Exception as exc:
+            print(exc)
             sys.exit()
         sys.exit()
 
