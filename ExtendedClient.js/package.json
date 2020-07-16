@@ -25,7 +25,7 @@
     "setimmediate": "~1.0.1",
     "sparqljs": "~1.0.1",
     "uritemplate": "~0.3.0",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.19",
     "lru-cache": "~2.5.0",
     "minimist": "1.1.0",
     "negotiator": "~0.4.9"
